@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CSql")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("SQL Magic")]
+[assembly: AssemblyDescription("An advanced SQL Library written in C#")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CSql")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyProduct("SqlMagic")]
+[assembly: AssemblyCopyright("Copyright © Adam Sears 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
