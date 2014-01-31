@@ -38,6 +38,9 @@ namespace SqlMagic.Monitor.Sql
             private static void aCommandCompleted(Object aSender, StatementCompletedEventArgs aArgs)
             {
 
+                // The command has finished
+                iObserveList[aSender as SqlCommand] = false;
+
             }
 
             /// <summary>
@@ -54,7 +57,15 @@ namespace SqlMagic.Monitor.Sql
             /// <param name="aCommandObject">The SqlCommand object to observe</param>
             internal static void Observe(SqlCommand aCommandObject)
             {
+                aCommandObject.Connection.FireInfoMessageEventOnUserErrors = true;
                 aCommandObject.StatementCompleted += aCommandCompleted;
+                aCommandObject.Connection.InfoMessage += Connection_InfoMessage;
+                iObserveList[aCommandObject] = true;
+            }
+
+            static void Connection_InfoMessage(object sender, SqlInfoMessageEventArgs e)
+            {
+                throw new NotImplementedException();
             }
 
             /// <summary>
@@ -62,7 +73,8 @@ namespace SqlMagic.Monitor.Sql
             /// </summary>
             internal static void Dispose()
             {
-
+                iObserveList.Clear();
+                iObserveList = null;
             }
 
         }
